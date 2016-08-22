@@ -1,4 +1,5 @@
 #include "scorer.h"
+#define NORMALIZE=2e3;
 
 Scorer::Scorer()
 {
@@ -151,7 +152,7 @@ void Scorer::matrixGraphScore(Graph *graph)
 
                 value *= -1;
 
-                value = exp(value);
+                value = exp(value/NORMALIZE);
 
                 inPortsMatrix[i][j] = value;
             }
@@ -235,7 +236,7 @@ void Scorer::matrixGraphScore(Graph *graph)
 
                 value *= -1;
 
-                value = exp(value);
+                value = exp(value/NORMALIZE);
 
                 outPortsMatrix[i][j] = value;
             }
@@ -601,7 +602,7 @@ void Scorer::combinedGraphScore(Graph *graph)
 
                 value *= -1;
 
-                value = exp(value);
+                value = exp(value/NORMALIZE);
 
                 inPortsMatrix[i][j] = value;
             }
@@ -685,7 +686,7 @@ void Scorer::combinedGraphScore(Graph *graph)
 
                 value *= -1;
 
-                value = exp(value);
+                value = exp(value/NORMALIZE);
 
                 outPortsMatrix[i][j] = value;
             }
